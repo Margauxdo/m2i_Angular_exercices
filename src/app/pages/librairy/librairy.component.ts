@@ -45,8 +45,16 @@ export class LibrairyComponent {
   submitForm() {
     if (!this.titleError && !this.authorError) {
       this.library.push({...this.book});
-      console.log(this.book)
+      console.log(this.book);
+      this.resetForm();
     }
+
+
+  }
+  resetForm() {
+    this.book.title = "";
+    this.book.author = "";
+    this.book.isRead = false;
 
 
   }
