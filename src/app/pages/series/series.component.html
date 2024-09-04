@@ -1,0 +1,27 @@
+<p>series works!</p>
+
+<section>
+
+    <div>
+      @for (s of series | rainbow: sort ;track s){
+
+        <p>{{s}}</p><button (click)="remove(s)">supprimer</button>
+      } @empty {
+        <p>vous n'avez aucune série</p>
+      }
+
+
+
+
+
+    </div>
+
+    <div>
+
+      <button (click)="ascendant()">Ascendant</button>
+      <button (click)="descendant()">descendant</button>
+    </div>
+
+
+
+</section>

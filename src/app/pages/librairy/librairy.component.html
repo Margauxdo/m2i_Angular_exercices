@@ -1,0 +1,15 @@
+<h1>Librairy</h1>
+
+<div>
+  <ul>
+  @for (l of library; track l){
+    <li>
+      <div [class]="l.isRead ? 'underline' : '' " >{{l.title | thumbs:l.isRead}}</div>, {{l.author}}
+      <button (click)="toggleRead(l)"> {{l.isRead ? "Non lu" :"Lu"}}</button>
+    </li>
+
+  }
+  </ul>
+</div>
+
+
