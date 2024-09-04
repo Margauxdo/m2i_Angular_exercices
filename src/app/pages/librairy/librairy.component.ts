@@ -44,7 +44,7 @@ export class LibrairyComponent {
 
   submitForm() {
     if (!this.titleError && !this.authorError) {
-      this.library.push({title: this.book.title, author: this.book.author, isRead: this.book.isRead});
+      this.library.push({...this.book});
       console.log(this.book)
     }
 
