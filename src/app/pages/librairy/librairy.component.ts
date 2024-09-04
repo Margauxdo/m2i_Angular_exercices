@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Book} from "../../models/Books";
+import {Book} from "../../models/books";
 import {ThumbsPipe} from "../../utils/pipes/thumbs.pipe";
 import {FormsModule, NgForm} from "@angular/forms";
 

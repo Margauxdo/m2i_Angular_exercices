@@ -1,0 +1,22 @@
+<h1>Pokémons</h1>
+
+<h2>Créer un nouveau pokémon</h2>
+<form [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="namePokemon">Name</label>
+    <input id="namePokemon" formControlName="namePokemon">
+  </div>
+  <div>
+    <label for="descriptionPokemon">Description</label>
+    <input id="descriptionPokemon" formControlName="descriptionPokemon">
+  </div>
+  <div>
+    <label for="typePokemon">Type</label>
+    <select id="typePokemon" formControlName="typePokemon" multiple>
+      <option *ngFor="let t of types" [value]="t">{{t}}</option>
+    </select>
+  </div>
+  <button>Valider</button>
+
+</form>
+
