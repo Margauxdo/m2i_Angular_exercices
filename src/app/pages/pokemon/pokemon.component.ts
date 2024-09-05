@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import {FormArray, FormArrayName, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
-import {Type} from "../../models/type";
+
 import {NgForOf} from "@angular/common";
+import {Pokemon} from "../../models/pokemon";
+import {PokemonCardComponent} from "../../components/pokemon-card/pokemon-card.component";
 
 @Component({
   selector: 'app-pokemon',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgForOf
+    NgForOf,
+    PokemonCardComponent
   ],
   templateUrl: './pokemon.component.html',
   styleUrl: './pokemon.component.css'
@@ -24,6 +27,7 @@ export class PokemonComponent {
     'normal'
 
   ];
+  pokemons: Pokemon[]=[];
 
   pokemonForm  = new FormGroup({
     namePokemon: new FormControl(''),
@@ -45,6 +49,9 @@ export class PokemonComponent {
   onSubmit(){
 
     console.log(this.pokemonForm.value);
+    this.pokemons.push(this.pokemonForm.value as Pokemon);
+    localStorage.setItem("pokemon", JSON.stringify(this.pokemonForm.value));
+    this.pokemonForm.reset();
   }
   createAttack(): FormGroup {
     return new FormGroup({

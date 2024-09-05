@@ -1,4 +1,4 @@
-import {Type} from "./type.js";
+
 import {Attack} from "./attack.js";
 import {Zone} from "./zone.js";
 
