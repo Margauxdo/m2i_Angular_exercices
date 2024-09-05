@@ -4,9 +4,9 @@ import {Zone} from "./zone.js";
 
 
 export type Pokemon = {
-  name: string;
-  description: string;
-  types : string[];
+  namePokemon: string;
+  descriptionPokemon: string;
+  typePokemon : string[];
   attacks: Attack[];
-  zones: Zone;
+  zone: Zone;
 }

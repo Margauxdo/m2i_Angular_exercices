@@ -34,14 +34,14 @@ export class PokemonComponent {
     descriptionPokemon: new FormControl(''),
     typePokemon: new FormControl(this.types),
     zone: new FormGroup({
-      nameZone: new FormControl(''),
-      region: new FormControl(''),
+      name: new FormControl(''),
+      district: new FormControl(''),
     }),
     attacks: new FormArray([
       new FormGroup({
-    nameAttack: new FormControl(''),
-    descriptionAttack: new FormControl(''),
-    damages: new FormControl(''),
+    name: new FormControl(''),
+    description: new FormControl(''),
+    damage: new FormControl(''),
   })
     ])
   });
@@ -49,7 +49,7 @@ export class PokemonComponent {
   onSubmit(){
 
     console.log(this.pokemonForm.value);
-    this.pokemons.push(this.pokemonForm.value as Pokemon);
+    this.pokemons.push(this.pokemonForm.value as unknown as Pokemon);
     localStorage.setItem("pokemon", JSON.stringify(this.pokemonForm.value));
     this.pokemonForm.reset();
   }

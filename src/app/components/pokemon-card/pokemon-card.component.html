@@ -1,21 +1,21 @@
 <article class="card">
-  <h2>{{ poke.name }}</h2>
-  <p>{{ poke.description }}</p>
+  <h2>{{ poke.namePokemon }}</h2>
+  <p>{{ poke.descriptionPokemon }}</p>
 
   <h4>Types : </h4>
   <div class="types">
-    @for (type of poke.types; track type) {
+    @for (type of poke.typePokemon; track type) {
       <span class="rounded">{{ type }}</span>
     }
   </div>
 
   <h4>Zone</h4>
-  <p><b>{{ poke.zones.name }} : {{ poke.zones.district }}</b></p>
+  <p><b>{{ poke.zone.name }} : {{ poke.zone.district }}</b></p>
 
   <h4>Attaques</h4>
   <ul class="attacks">
     @for (att of poke.attacks; track att) {
-      <li>{{ att.name }} --> {{ att.damage }}</li>
+      <li>{{ att.name}} --> {{ att.damage }}</li>
     }
   </ul>
 </article>

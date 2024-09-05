@@ -25,17 +25,17 @@
         <div [formGroupName]="$index">
           <div>
             <label [for]="'nameAttack' +$index">Nom</label>
-            <input [id]="'nameAttack'+$index" formControlName="nameAttack">
+            <input [id]="'nameAttack'+$index" formControlName="name">
           </div>
           <div>
             <label [for]="'descriptionAttack'+$index">Description</label>
-            <input [id]="'descriptionAttack'+$index" formControlName="descriptionAttack">
+            <input [id]="'descriptionAttack'+$index" formControlName="description">
           </div>
           <div>
             <label [for]="'damages'+$index">Domages</label>
-            <input [id]="'damages'+$index" formControlName="damages">
+            <input [id]="'damages'+$index" formControlName="damage">
           </div>
-          <button (click)="addAttack()">Ajouter l'attaque</button>
+          <button type="button" (click)="addAttack()">Ajouter l'attaque</button>
         </div>
       }
 
@@ -47,11 +47,11 @@
       <legend> Zone</legend>
       <div>
         <label for="nameZone">Nom </label>
-        <input id="nameZone" formControlName="nameZone">
+        <input id="nameZone" formControlName="name">
       </div>
       <div>
         <label for="region"> Région</label>
-        <input id="region" formControlName="region">
+        <input id="region" formControlName="district">
       </div>
     </fieldset>
   </div>
