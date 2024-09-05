@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormArray, FormArrayName, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 import {Type} from "../../models/type";
 import {NgForOf} from "@angular/common";
@@ -25,16 +25,39 @@ export class PokemonComponent {
 
   ];
 
-  pokemonForm: FormGroup  = new FormGroup({
+  pokemonForm  = new FormGroup({
     namePokemon: new FormControl(''),
     descriptionPokemon: new FormControl(''),
-    typePokemon: new FormControl(''),
+    typePokemon: new FormControl(this.types),
+    zone: new FormGroup({
+      nameZone: new FormControl(''),
+      region: new FormControl(''),
+    }),
+    attacks: new FormArray([
+      new FormGroup({
+    nameAttack: new FormControl(''),
+    descriptionAttack: new FormControl(''),
+    damages: new FormControl(''),
+  })
+    ])
   });
 
   onSubmit(){
 
     console.log(this.pokemonForm.value);
   }
+  createAttack(): FormGroup {
+    return new FormGroup({
+      nameAttack: new FormControl(''),
+      descriptionAttack: new FormControl(''),
+      damages: new FormControl(''),
+    })
+  }
+  addAttack(){
+  this.pokemonForm.controls.attacks.push(this.createAttack());
+
+  }
+
 
 
 }

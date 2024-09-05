@@ -13,10 +13,49 @@
   <div>
     <label for="typePokemon">Type</label>
     <select id="typePokemon" formControlName="typePokemon" multiple>
-      <option *ngFor="let t of types" [value]="t">{{t}}</option>
+      @for(type of types; track type){
+      <option >{{type}}</option>
+      }
     </select>
   </div>
-  <button>Valider</button>
+  <div>
+    <fieldset formArrayName="attacks">
+        <legend>Attaques</legend>
+      @for (attack of pokemonForm.controls.attacks.controls; track attack){
+        <div [formGroupName]="$index">
+          <div>
+            <label [for]="'nameAttack' +$index">Nom</label>
+            <input [id]="'nameAttack'+$index" formControlName="nameAttack">
+          </div>
+         <div>
+            <label [for]="'descriptionAttack'+$index">Description</label>
+            <input [id]="'descriptionAttack'+$index" formControlName="descriptionAttack">
+          </div>
+          <div>
+            <label [for]="'damages'+$index">Domages</label>
+            <input [id]="'damages'+$index" formControlName="damages">
+          </div>
+        <button (click)="addAttack()">Ajouter l'attaque</button>
+        </div>
+      }
+
+    </fieldset>
+
+  </div>
+  <div>
+    <fieldset formGroupName="zone">
+      <legend> Zone</legend>
+      <div>
+        <label for="nameZone">Nom </label>
+        <input id="nameZone" formControlName="nameZone">
+      </div><div>
+      <label for="region"> Région</label>
+      <input id="region" formControlName="region">
+    </div>
+    </fieldset>
+  </div>
+
+  <button>Ajouter le pokémon</button>
 
 </form>
 
