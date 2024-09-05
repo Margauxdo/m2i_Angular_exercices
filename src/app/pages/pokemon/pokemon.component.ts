@@ -64,6 +64,9 @@ export class PokemonComponent {
   this.pokemonForm.controls.attacks.push(this.createAttack());
 
   }
+  onDeletePokemon(pokemonToDelete: Pokemon){
+    this.pokemons = this.pokemons.filter(pokemon => pokemon !== pokemonToDelete);
+  }
 
 
 
