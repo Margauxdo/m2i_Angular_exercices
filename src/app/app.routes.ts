@@ -9,6 +9,6 @@ export const routes: Routes = [
   { path :'count', component: CounterComponent},
   {path: 'series', component: SeriesComponent},
   {path: 'library', component: LibrairyComponent},
-  {path: 'pokemon', component: PokemonComponent}
-  //{path: 'pipes', component: PipesComponent},
+  {path: 'pokemon', component: PokemonComponent},
+  {path: '' , redirectTo: ''},
 ];
