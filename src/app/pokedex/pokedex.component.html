@@ -1,0 +1,10 @@
+<h2>Mon pokédex</h2>
+
+<ul>
+  @for(pokemon of pokedex; track pokemon){
+  <li>{{pokemon.namePokemon}}
+    <button (click)="removePokemon(pokemon)">Supprimer de mon Pokédex</button>
+  </li>
+
+  }
+</ul>

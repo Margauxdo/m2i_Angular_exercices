@@ -3,6 +3,7 @@ import {CounterComponent} from "./pages/counter/counter.component";
 import {SeriesComponent} from "./pages/series/series.component";
 import {LibrairyComponent} from "./pages/librairy/librairy.component";
 import {PokemonComponent} from "./pages/pokemon/pokemon.component";
+import {PokedexComponent} from "./pokedex/pokedex.component";
 
 
 export const routes: Routes = [
@@ -10,5 +11,6 @@ export const routes: Routes = [
   {path: 'series', component: SeriesComponent},
   {path: 'library', component: LibrairyComponent},
   {path: 'pokemon', component: PokemonComponent},
-  {path: '' , redirectTo: ''},
+  {path: 'pokedex', component: PokedexComponent},
+
 ];
