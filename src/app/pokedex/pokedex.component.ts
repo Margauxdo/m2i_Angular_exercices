@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Pokemon} from "../models/pokemon";
 import {PokedexService} from "../utils/service/pokedex.service";
+import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-pokedex',
@@ -11,9 +13,13 @@ import {PokedexService} from "../utils/service/pokedex.service";
 })
 export class PokedexComponent implements OnInit{
 
-  pokedex:Pokemon[] = [];
 
-  constructor(private pokedexService: PokedexService) {};
+  pokedex:Pokemon[] = [];
+  pokedex$: Observable<Pokemon[]>;
+
+  constructor(private pokedexService: PokedexService) {
+    this.pokedex$ = this.pokedexService.getPokedex$();
+  };
 
   ngOnInit(): void {
     this.pokedex = this.pokedexService.getPokedex();
